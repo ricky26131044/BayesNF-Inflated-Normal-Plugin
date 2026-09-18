@@ -8,13 +8,13 @@
 
 ##  核心特色 (Key Features)
 
-** 無侵入式設計 (Non-invasive Patching)**  
+1. **無侵入式設計 (Non-invasive Patching)**  
   透過 `enable_mixture_normal()` 函數即可在 Runtime 動態攔截並替換 BayesNF 內部的 likelihood model，完全不需要修改 BayesNF 的原始碼。
   
-** 三輸出頭神經網路架構 (3-Head MLP Architecture)**  
+2. **三輸出頭神經網路架構 (3-Head MLP Architecture)**  
   擴展了原有的 `BayesianNeuralField1D` 模型，要求網路在每一個時空位置 $(s,t)$ 於最終隱藏層分叉輸出三個潛在時空函數 $(F, G, H)$。模型在一組時空特徵基礎上，能同時學習非膨脹部分期望值、膨脹部分機率值與異質性變異數三類訊息。
   
-** 具膨脹點與局部變異異質性之混合模型 (Mixture Model with Point Mass)**  
+3. **具膨脹點與局部變異異質性之混合模型 (Mixture Model with Point Mass)**  
   模型假設觀測值有機率 *P(s,t)* 直接落在膨脹點（以集中於 *c* 之點質量分配 $δ_c$ 近似），而在其餘機率 *1 - P(s,t)* 下，觀測值則由以 *F(s,t)* 為平均結構、*σ²(s,t)* 為變異數之連續分布產生。
 
 ---
